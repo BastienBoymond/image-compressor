@@ -1,13 +1,13 @@
 on: [push]
 name: CI image-compressor
 jobs:
-  runhaskell:
-    name: Hello World
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-haskell@v1.1
-        with:
-          enable-stack: true
-          stack-version: 'latest'
+      - uses: actions/setup-haskell@v1.1 
+      - run: stack setup
       - run: make
+      - run: make re
+      - run: make clean
+      - run: make fclean
