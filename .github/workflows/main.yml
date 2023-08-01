@@ -11,3 +11,7 @@ jobs:
       - run: make re
       - run: make clean
       - run: make fclean
+  pages:
+    needs: build
+    uses: ./.github/workflows/jekyll-gh-pages.yml
+
